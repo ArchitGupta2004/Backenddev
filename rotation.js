@@ -1,6 +1,6 @@
 /*  Check for Rotation
 Given two strings, check if one is a rotation of another.
-Input: "ABCD", "CDAB" → Output: true take input from user without funcn in basic way */
+Input: "ABCD", "CDAB" → Output: true  */
 const readline = require('readline');
 
 const rl = readline.createInterface({
