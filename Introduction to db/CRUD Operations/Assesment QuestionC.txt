@@ -1,0 +1,62 @@
+Q1. Advantages of using Mongoose over native MongoDB driver**
+Answer
+. Provides schema-based structure → enforces data consistency
+. Supports built-in validation → ensures correct data format
+. Offers middleware (hooks) → perform actions before/after operations
+. Simplifies queries with easy-to-use methods
+. Supports population (relations) → like joins in SQL
+Conclusion: Mongoose makes MongoDB easier, structured, and developer-friendly.
+
+
+
+Q2. Difference between findOneAndUpdate() and updateOne()
+Answer
+. findOneAndUpdate() → updates document and returns the updated document
+. updateOne() → updates document but does NOT return updated document (only status)
+. findOneAndUpdate() can use options like `{ new: true }` to get updated data
+. updateOne() is faster when return value is not needed
+Conclusion:Use findOneAndUpdate() when updated document is required.
+
+
+
+Q3. Purpose of Middleware in Mongoose
+Answer
+. Middleware are **functions executed before or after operations**
+. Used for tasks like **validation, logging, hashing passwords**
+ Types:
+. Pre middleware (before operation)
+. Post middleware (after operation)
+  . Improves code reusability and automation
+Example:Hash password before saving user
+Conclusion:Middleware helps automate common tasks in database operations.
+
+
+
+Q4. Pagination in Mongoose
+Answer
+. Used to limit and skip records for large datasets
+. Implemented using `.limit()` and `.skip()` methods
+Model.find()
+  .skip((page - 1) * limit)
+  .limit(limit)
+Example:Page = 2, Limit = 10 → skips first 10 records
+Conclusion:Pagination improves performance and user experience.
+
+
+
+Q5. Embedding vs Referencing in MongoDB
+Answer
+. Embedding store related data in same document
+. Faster reads
+. Best for small, related data
+. Referencing  store data in separate documents using IDs
+. Avoids data duplication
+. Better for large or complex relationships
+Example:
+Embedding → user with address
+Referencing → student & courses
+Conclusion:
+. Use embedding for simple data
+. Use referencing for complex and large data
+
+

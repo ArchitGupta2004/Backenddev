@@ -1,0 +1,35 @@
+
+
+Q1. Add New Student (Create)
+Answer
+db.students.insertOne({
+  name: "Rahul Sharma",
+  email: "rahul@gmail.com",
+  course: "CSE",
+  GPA: 3.6
+})
+
+
+Q2. View All Students (Read)
+Answer
+db.students.find()
+
+
+Q3. Find Student by Email (Read)
+Answer
+db.students.find({ email: "rahul@gmail.com" })
+
+
+Q4. Update Student GPA (Update)*
+Answer
+db.students.updateOne(
+  { email: "rahul@gmail.com" },
+  { $set: { GPA: 3.9 } }
+)
+
+
+Q5. Delete Student (Delete)
+Answer
+db.students.deleteOne({ email: "rahul@gmail.com" })
+
+

@@ -1,0 +1,35 @@
+
+
+Q1. Find students with GPA between 3.0 and 3.5
+Answer
+js id="a1b2c3"
+db.students.find({
+  GPA: { $gte: 3.0, $lte: 3.5 }
+})
+
+
+Q2. Find students enrolled in more than 5 courses
+Answer
+db.students.find({
+  courses: { $size: 5 }
+})
+
+
+(More than 5 courses – alternative)
+
+db.students.find({
+  "courses.5": { $exists: true }
+})
+
+Q3. Get top 10 students by GPA
+Answer
+
+db.students.find().sort({ GPA: -1 }).limit(10)
+
+
+Q4. Count students by city
+Answer
+db.students.aggregate([
+  { $group: { _id: "$city", count: { $sum: 1 } } }
+])
+

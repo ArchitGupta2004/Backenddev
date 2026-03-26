@@ -1,0 +1,27 @@
+
+Q1. Course with Prerequisites
+
+Answer
+{
+  courseId: "CS201",
+  courseName: "Data Structures",
+  prerequisites: ["CS101", "CS102"]
+}
+
+
+Q2. Professor with Multiple Departments
+Answer
+{
+  professorId: "P101",
+  name: "Dr. Sharma",
+  departments: ["CSE", "IT"]
+}
+
+
+Q3. Grade with Student and Course References
+Answer
+{
+  studentId: "S101",
+  courseId: "CS201",
+  grade: "A"
+}

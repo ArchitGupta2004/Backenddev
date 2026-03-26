@@ -1,0 +1,44 @@
+
+Q1. Calculate Average GPA by Department
+Answer
+db.students.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      avgGPA: { $avg: "$GPA" }
+    }
+  }
+])
+
+
+Q2. Find Most Popular Courses
+Answer
+db.students.aggregate([
+  { $unwind: "$courses" },
+  {
+    $group: {
+      _id: "$courses",
+      count: { $sum: 1 }
+    }
+  },
+  { $sort: { count: -1 } }
+])
+
+Q3. Generate Student Performance Report
+Answer
+db.students.aggregate([
+  {
+    $project: {
+      name: 1,
+      department: 1,
+      GPA: 1,
+      performance: {
+        $cond: {
+          if: { $gte: ["$GPA", 3.5] },
+          then: "Excellent",
+          else: "Average"
+        }
+      }
+    }
+  }
+])
